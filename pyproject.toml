@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "woc"
+version = "0.1.0"
+description = ""
+authors = ["ShiinaRinne"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+qiniu = "^7.13.1"
+pydantic = "^2.7.2"
+aiohttp = "^3.9.5"
+loguru = "^0.7.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
