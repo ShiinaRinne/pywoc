@@ -12,6 +12,7 @@ qiniu = "^7.13.1"
 pydantic = "^2.7.2"
 aiohttp = "^3.9.5"
 loguru = "^0.7.2"
+nuitka = "^2.3"
 
 
 [build-system]

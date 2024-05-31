@@ -4,9 +4,9 @@
 现在支持的功能不多, 有空说不定会继续做
 
 ## 使用方式
-
+可以在 [release](https://github.com/ShiinaRinne/pywoc/releases) 下载可执行文件, 或者通过源码运行
 ```
-PS D:\Desktop\woc> python .\main.py -h
+PS D:\Desktop\woc> woc.exe -h
 usage: main.py [-h] [--login LOGIN] [--list-space] [--upload] [--shell] [files ...]
 
 Woc! Py!!!
@@ -28,29 +28,29 @@ options:
     该命令会将 token 保存至 `C:\Users\<user>\AppData\Local\woc_token` 文件中
 
     步骤: 
-    1. F12 
-    2. Network页 
-    3. 筛选 xhr 请求 
-    4. 随便点一个查看 request header 中的 Authorization字段并全部复制
+    1. `F12/ Ctrl Shift I/ Command Shift I` 打开开发者工具
+    2. `Network` 页 
+    3. 筛选 `Fetch/XHR` 请求 
+    4. 随便点一个查看 `request header` 中的 `Authorization` 字段并全部复制
     5. ![alt text](image.png)
     ```
-    python main.py login "Bearer eyJxxxxx"
+    woc.exe login "Bearer eyJxxxxx"
     ```
 
 - 显示当前 Space 列表
     ```
-    PS D:\Desktop\woc> python .\main.py --list-space
+    PS D:\Desktop\woc> woc.exe --list-space
     name         guid                                 size     entityAmount ownerName      expireAt
     1234         cb15xxxx-xxxx-4617-xxxx1-xxxxxxx6abb2 8191325  15           I am a creator 2025-06-29T05:09:42.964+00:00
     ```
 
 - 上传文件. 多文件时使用空格分隔
     ```
-    python main.py --upload foo.jpg bar.png
+    woc.exe --upload foo.jpg bar.png
     ```
     或者
     ```
-    python main.py foo.jpg bar.png
+    woc.exe foo.jpg bar.png
     ```
 - Shell 模式. 目前支持的命令不多
   ```
@@ -62,7 +62,7 @@ options:
   exit: 退出
   ```
   ```
-  python main.py --shell
+  woc.exe --shell
   >>> lsf
     当前 space:1234 page: 1/1
     FqtwljFaQAAkHn-.jpg(1)(1)(1)(1).jpg   https://static-prod.woc.space/xxxx神秘链接
