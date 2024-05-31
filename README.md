@@ -1,10 +1,19 @@
 # WOC! PY!
 
-[https://woc.space](https://woc.space/)的命令行版本, 可以直接拿去集成到其他工具里<br>
+[https://woc.space](https://woc.space/) 的命令行版本, 可以直接拿去集成到其他工具里<br>
 现在支持的功能不多, 有空说不定会继续做
 
-## 使用方式
-可以在 [release](https://github.com/ShiinaRinne/pywoc/releases) 下载可执行文件, 或者通过源码运行
+- [WOC! PY!](#woc-py)
+- [使用方式](#使用方式)
+- [示例](#示例)
+  - [登录.](#登录)
+  - [显示当前 Space 列表](#显示当前-space-列表)
+  - [上传文件. 多文件时使用空格分隔](#上传文件-多文件时使用空格分隔)
+  - [Shell 模式. 目前支持的命令不多](#shell-模式-目前支持的命令不多)
+- [TODO/Roadmap](#todoroadmap)
+
+# 使用方式
+可以在 [release](https://github.com/ShiinaRinne/pywoc/releases) 下载可执行文件
 ```
 PS D:\Desktop\woc> woc.exe -h
 usage: main.py [-h] [--login LOGIN] [--list-space] [--upload] [--shell] [files ...]
@@ -22,9 +31,17 @@ options:
   --shell        进入shell模式
 ```
 
-## 示例
-- 登录. 
-    目前需要手动在浏览器 F12 中复制 `Bearer` token. 后面的所有操作都需要使用此命令登录后才可使用. <br>
+也通过源码运行. 需要 Python3.10+
+```
+pip3 install poetry
+poetry install
+poetry shell
+python3 main.py --login "Bearer xxx"
+```
+
+# 示例
+## 登录. 
+    目前需要手动在浏览器 F12 中复制 `Bearer token`. 后面的所有操作都需要使用此命令登录后才可使用. <br>
     该命令会将 token 保存至 `C:\Users\<user>\AppData\Local\woc_token` 文件中
 
     步骤: 
@@ -37,22 +54,22 @@ options:
     woc.exe login "Bearer eyJxxxxx"
     ```
 
-- 显示当前 Space 列表
+## 显示当前 Space 列表
     ```
     PS D:\Desktop\woc> woc.exe --list-space
-    name         guid                                 size     entityAmount ownerName      expireAt
+    name         guid                                  size     entityAmount ownerName      expireAt
     1234         cb15xxxx-xxxx-4617-xxxx1-xxxxxxx6abb2 8191325  15           I am a creator 2025-06-29T05:09:42.964+00:00
     ```
 
-- 上传文件. 多文件时使用空格分隔
+## 上传文件. 多文件时使用空格分隔
     ```
     woc.exe --upload foo.jpg bar.png
     ```
-    或者
+    也可以省略 `--upload` 参数
     ```
     woc.exe foo.jpg bar.png
     ```
-- Shell 模式. 目前支持的命令不多
+## Shell 模式. 目前支持的命令不多
   ```
   login: 登录. 可以带个 token 作为参数. 例如 login "bearer xxxx"
   lss: list space. 显示当前的所有 space
@@ -70,4 +87,12 @@ options:
   >>> lss
     name         guid                                 size     entityAmount ownerName      expireAt
     1234         cb15xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 8191325  15           I am a creator 2025-06-29T05:09:42.964+00:00
-    >>>
+  >>>
+  ```
+  
+# TODO/Roadmap
+- [ ] 创建删除重命名 Space
+- [ ] 重命名删除文件
+- [ ] 完善仿 unix 命令
+- [ ] 文件夹(得等官方支持之后)
+- [ ] 不阻塞的后台上传.(进度条需要七牛回调, 目前通过官方接口无法实现)
