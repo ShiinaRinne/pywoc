@@ -59,7 +59,7 @@ class SpaceEntity(BaseModel):
     blocked: bool
     comments: int
     coverKey: Optional[str]
-    extensionName: str
+    extensionName: Optional[str]
     file: bool
     fileId: str
     fileSize: int
@@ -68,7 +68,7 @@ class SpaceEntity(BaseModel):
     folderSize: int
     guid: str
     key: str  # 下载链接
-    mimeType: str
+    mimeType: Optional[str]
     name: str
     parentGuid: Optional[str]
     parentName: Optional[str]
