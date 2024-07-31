@@ -1,3 +1,7 @@
+woc.space 已将七牛替换为火山，此工具(cli ver)已无法使用且不再提供更新维护。
+
+其他更新计划请查看[WoCloudreve](https://blog.youngmoe.com/WOC-WoCloudreve-3528d76e6c4d495aaa4e0b474536377c)
+
 # WOC! PY!
 
 [https://woc.space](https://woc.space/) 的命令行版本, 可以直接拿去集成到其他工具里<br>
